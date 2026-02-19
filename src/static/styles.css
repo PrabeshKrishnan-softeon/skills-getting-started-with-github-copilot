@@ -29,15 +29,15 @@ header h1 {
 }
 
 main {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   gap: 30px;
   justify-content: center;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   main {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -57,21 +57,74 @@ section h3 {
   color: #1a237e;
 }
 
+#activities-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
 .activity-card {
-  margin-bottom: 15px;
-  padding: 15px;
+  margin-bottom: 0;
+  padding: 20px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #f9f9f9;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.activity-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.activity-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.activity-icon {
+  font-size: 2rem;
+  margin-right: 10px;
 }
 
 .activity-card h4 {
-  margin-bottom: 10px;
+  margin: 0;
   color: #0066cc;
+  font-size: 1.2rem;
 }
 
 .activity-card p {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.participants-list {
+  list-style-type: none;
+  margin: 10px 0 0 0;
+  padding: 0;
+  color: #555;
+}
+
+.participants-list li {
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.delete-participant {
+  cursor: pointer;
+  color: #c62828;
+  font-weight: bold;
+  margin-left: 10px;
+  transition: color 0.2s;
+}
+
+.delete-participant:hover {
+  color: #b71c1c;
 }
 
 .form-group {
